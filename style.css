@@ -1,102 +1,148 @@
-/* style.css */
-
 body {
   margin: 0;
   font-family: 'Orbitron', sans-serif;
-  background-color: #111;
-  color: #f0f0f0;
+  background-color: #000;
+  color: white;
+  overflow-x: hidden;
 }
 
 .logo-container {
-  display: flex;
-  justify-content: center;
-  background-color: #000;
-  padding: 30px;
+  text-align: center;
+  margin: 20px 0;
 }
-
-.starwars-logo {
-  max-width: 500px;
-  height: auto;
-} 
 
 .features-section {
-  padding: 50px 20px;
-  background-color: #1a1a1a;
+  padding: 20px;
   text-align: center;
-}
-
-.features-section h2 {
-  font-size: 2.5rem;
-  color: #ffe81f;
-  margin-bottom: 40px;
 }
 
 .card-container {
   display: flex;
-  gap: 30px;
   justify-content: center;
+  gap: 40px;
   flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .card {
-  background-color: #222;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 280px;
-  text-align: center;
-}
-
-.card-icon {
-  width: 220px;
-  height: auto;
-  margin-bottom: 25px;
-}
-
-.card h3 {
-  color: #ffe81f;
-  margin-bottom: 15px;
-}
-
-.card p {
-  font-size: 0.95rem;
-  line-height: 1.4;
-  color: #ccc;
+  background-color: #090909;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 0 10px rgba(240, 220, 6, 0.2);
+  transition: transform 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(255, 232, 31, 0.4);
+  box-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700;
+  transform: scale(1.05);
 }
 
-.featured {
-  border: 2px solid #ffe81f;
+.card-icon {
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
+.fly-away {
+  animation: hyperspeed 3s ease-out forwards;
+  z-index: 999;
+  
+}
+
+/* Hintergrund-Sternfeld */
+body.stars::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+  animation: moveStars 20s linear infinite;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.fly-away {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  animation: hyperspeed 4s ease-out forwards;
+  z-index: 999;
+}
+@keyframes hyperspeed {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(10);
+  }
+}
+
+
+@keyframes moveStars {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-500px, -1000px); }
+}
+.starwars-logo {
+  max-width: 300px;
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+@media (max-width: 600px) {
+  .starwars-logo {
+    max-width: 200px;
+  }
+}
 .footer {
   background-color: #000;
-  color: #ffe81f;
+  padding: 20px;
   text-align: center;
-  padding: 20px 10px;
-  margin-top: 60px;
-  font-size: 0.9rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #FFD700; /* Star Wars-Gelb */
+  border-top: 2px solid #FFD70033;
+  margin-top: 50px;
+  box-shadow: 0 -2px 15px #FFD70055;
 }
 
 .footer a {
-  color: #ffe81f;
-  margin: 0 15px;
+  color: #FFD700;
   text-decoration: none;
-  font-weight: bold;
+  margin: 0 10px;
+  transition: all 0.3s ease-in-out;
 }
 
 .footer a:hover {
-  text-decoration: underline;
+  color: white;
+  text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+}
+.topnav {
+  background-color: #000;
+  padding: 15px;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #FFD700;
+  border-bottom: 2px solid #FFD70033;
+  box-shadow: 0 2px 15px #FFD70055;
+  margin-bottom: 30px;
 }
 
-@media (max-width: 768px) {
-  .card-container {
-    flex-direction: column;
-    align-items: center;
-  }
+.topnav a {
+  color: #FFD700;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.topnav a:hover {
+  color: white;
+  text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
 }
